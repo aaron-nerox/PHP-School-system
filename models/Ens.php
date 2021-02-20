@@ -73,4 +73,40 @@ class Ens extends Loader{
 
         return $statment->fetchAll();
     }
+
+    /**
+     * get all students
+     */
+    public function getStudents(){
+        $sql = "SELECT * FROM eleve";
+        $statment = $this->db_conn->prepare($sql);
+        $statment->execute();
+
+        return $statment->fetchAll();
+    }
+
+    /**
+     * get a student's emploi by it's id
+     */
+    public function getEmploi($idEmploi){
+        $sql = "SELECT * FROM emplois_temps WHERE id_emploi = :id";
+        $statment = $this->db_conn->prepare($sql);
+        $statment->execute(['id'=>$idEmploi]);
+
+        return $statment->fetch();
+    }
+
+    /**
+     * assign a note to a student in his class
+     */
+    public function addNote(){
+        //TODO
+    }
+
+    /**
+     * modify a note
+     */
+    public function modifyNote(){
+        
+    }
 }

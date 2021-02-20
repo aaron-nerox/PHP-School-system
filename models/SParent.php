@@ -1,6 +1,6 @@
 <?php
 
-class Eleve extends Loader{
+class SParent extends Loader{
     private $db_conn;
 
     /**
@@ -13,12 +13,12 @@ class Eleve extends Loader{
     }
 
     /**
-     * a function that logs in and returns the profile of a student and starts a session
+     * a function that logs in and returns the profile of a parent and starts a session
      */
     public function logIn($email,$password){
         $sMail = filter_var($email, FILTER_SANITIZE_EMAIL);
         if(!empty($sMail)&&!empty($password)){
-            $sql = "SELECT * FROM eleve WHERE email_eleve = :mail AND password_eleve = :pass";
+            $sql = "SELECT * FROM parent WHERE parent_email = :mail AND parent_password = :pass";
             $statement = $this->db_conn->prepare($sql);
             $statement->execute(['mail'=>$sMail,'pass'=>$password]);
             $results = $statement->fetch();
@@ -43,7 +43,18 @@ class Eleve extends Loader{
     }
 
     /**
-     * a function to get the emploi
+     * a function that gets the sons profiles
+     */
+    public function getSonsProfiles($idParent){
+        $sql = "SELECT * FROM eleve WHERE id_parent = :id";
+        $statment = $this->db_conn->prepare($sql);
+        $statment->execute(['id'=>$idParent]);
+
+        return $statment->fetchAll();
+    }
+
+    /**
+     * a function to get a specifique emploi
      */
     public function getEmploi($idEmploi){
         $sql = "SELECT * FROM emplois_temps WHERE id_emploi = :id";
@@ -58,6 +69,17 @@ class Eleve extends Loader{
      */
     public function getNotes($idStudent){
         $sql = "SELECT * FROM note_eleve WHERE id_eleve = :id";
+        $statment = $this->db_conn->prepare($sql);
+        $statment->execute(['id'=>$idStudent]);
+
+        return $statment->fetchAll();
+    }
+
+    /**
+     * a function to get the teacher's remarks for a student
+     */
+    public function getStudentRemarques($idStudent){
+        $sql = "SELECT * FROM remarques WHERE id_eleve = :id";
         $statment = $this->db_conn->prepare($sql);
         $statment->execute(['id'=>$idStudent]);
 
