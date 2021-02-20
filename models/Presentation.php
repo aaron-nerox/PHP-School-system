@@ -16,7 +16,44 @@ class Presentation extends Loader{
      * a function to get all presentation paragraphs with images
      */
     public function getAllParagraphs(){
+        $sql = "SELECT * FROM presentation";
+        $statment = $this->db_conn->prepare($sql);
+        $statment->execute();
+
+        return $statment->fetchAll();
+    }
+
+    /**
+     * a function to add an image to a paragraph
+     */
+    public function addParagraphImage($link,$id){
+        $sql = "UPDATE presentation SET lien_image_pres = :link WHERE id_paragraphe = :id";
+        $statment = $this->db_conn->prepare($sql);
+        $result = $statment->execute(['link'=>$link,'id'=>$id]);
         
+        return $result;
+    }
+
+    /**
+     * a function to remove the paragraph providing it's Id
+     */
+    public function removeParagraph($id){
+        $sql = "DELETE FROM presentation WHERE id_paragraphe = :id";
+        $statment = $this->db_conn->prepare($sql);
+        $result = $statment->execute(['id'=>$id]);
+
+        return $result;
+    }
+
+    /**
+     * a function to modify a paragraph
+     */
+    public function updateParagraph($newText,$id){
+        $sql = "UPDATE presentation SET paragraphe_pres = :updt WHERE id_paragraphe = :id";
+        $statment = $this->db_conn->prepare($sql);
+        $result = $statment->execute(['updt'=>$newText,'id'=>$id]);
+        
+        return $result;
     }
 
 }
