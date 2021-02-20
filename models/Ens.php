@@ -12,6 +12,8 @@ class Ens extends Loader{
         $this->db_conn = $this->DbConnection->db_connect('localhost','ecole_db','root','');
     }
 
+    //TODO: add the remarque to students
+
     /**
      * a function that modifies the class that a teacher is ocupying
      */
