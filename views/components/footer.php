@@ -15,9 +15,7 @@ class Footer{
      */
     public function create(){
         echo '
-        <footer>
             <div class="footer-container">
-                <hr/>
                 <div class="inner-container">
                     <img src="../assets/icons/logo.png" class="footer-logo"/>
                     <div class="footer-menu">
@@ -43,8 +41,7 @@ class Footer{
                             <img src="../assets/icons/yt.png" class="social-icon"></a>
                 </div>
                 <p class="important">&copy; 2020 ecole de formation.</p>
-            </div>
-        </footer>';
+            </div>';
     }
 
     /**

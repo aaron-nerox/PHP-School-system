@@ -1,9 +1,8 @@
 <?Php 
-
     abstract class Loader{
 
         public function getInstance($path,$className){
-            $fullPath = "../$path/$className.php";
+            $fullPath = $_SERVER['DOCUMENT_ROOT']."/projettdw/$path/$className.php";
             require_once($fullPath);
             $this->$className = new $className();
         }
@@ -12,5 +11,19 @@
             $fullPath = "$name.php";
             require_once($fullPath);
             $this->$name = new $name();
+        }
+
+        public static function loadClassInstance($path,$className){
+            $fullPath = $_SERVER['DOCUMENT_ROOT']."/projettdw/$path/$className.php";
+            require_once($fullPath);
+            return new $className();
+        }
+
+        public static function loadStyleSheets(){
+            echo 
+            '<link rel="stylesheet" href="style/mainStyle.css">
+            <link rel="stylesheet" href="style/footerStyle.css">
+            <link rel="stylesheet" href="style/headerStyle.css">
+            <link rel="stylesheet" href="style/diapoStyle.css">';
         }
     }

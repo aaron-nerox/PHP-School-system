@@ -8,6 +8,12 @@ header{
 }
 
 .header-logo{
-    width: 5%;
-    margin-right: 75%;
+    width: 50px;
+    padding: 8px;
+    margin-right: 5%;
+}
+
+.header-social{
+    display: inline-block;
+    width: max-content;
 }

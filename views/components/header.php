@@ -8,7 +8,9 @@ class Header{
 
     public function create(){
         echo '<header>
-                <img src="../assets/icons/logo.png" alt="logo" class="header-logo" />
+                <a href="./index.php">
+                    <img src="../assets/icons/logo.png" alt="logo" class="header-logo" />
+                </a>
                 <div class="header-social">
                     <a href="http://facebook.com" target="_blank">
                         <img src="../assets/icons/fb.png" class="social-icon"></a>
