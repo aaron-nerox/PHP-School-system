@@ -1,0 +1,13 @@
+header{
+    background-color: rgb(224, 224, 224);
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    top: 0;
+}
+
+.header-logo{
+    width: 5%;
+    margin-right: 75%;
+}

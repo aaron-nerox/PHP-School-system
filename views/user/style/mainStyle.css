@@ -1,0 +1,41 @@
+@font-face {
+    font-family: 'samsungSans';
+    src: url('../../assets/fonts/samsung_sans_bold.otf');
+}
+
+@font-face {
+    font-family: 'centuryGauthic';
+    src: url('../../assets/fonts/century.ttf');
+}
+
+body{
+    display: grid;
+    height: 90vh;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+}
+
+.div-container{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title{
+    font-family: 'samsungSans';
+    font-weight: bolder;
+    font-size: 2em;
+}
+
+.important{
+    font-family: 'samsungSans';
+    font-weight: bold;
+    font-size: 1.25em;
+}
+
+.text{
+    font-family: 'centuryGauthic';
+    font-weight: normal;
+    font-size: 1.1em;
+}

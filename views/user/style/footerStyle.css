@@ -1,0 +1,47 @@
+.footer-container{
+    background-color: rgb(224, 224, 224);
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.inner-container{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.footer-menu ul{
+    display: inline-block;
+    text-align: left;
+}
+
+.footer-menu ul li{
+    list-style: none;
+}
+
+.footer-menu ul li a{
+    text-decoration: none;
+    font-family: 'samsungSans';
+    color: black;
+    transition: 200ms ease-in-out;
+}
+
+.footer-menu ul li a:hover{
+    color: #555;
+}
+
+.social-icon{
+    width: 30px;
+    padding: 8px;
+    margin: 5px;
+    transition: 200ms ease-in-out;
+    border-radius: 1000px;
+}
+
+.social-icon:hover{
+    background-color: rgb(255, 255, 255);
+}
+
+.footer-logo{
+    width: 120px;
+}
