@@ -4,6 +4,7 @@
     //loading the components
     $footer= Loader::loadClassInstance('views/components','Footer');
     $header= Loader::loadClassInstance('views/components','Header');
+    $menu = Loader::loadClassInstance('views/components','Menu');
     $loginForm = Loader::loadClassInstance('views/components', 'LoginForm');
 
     $parentController = Loader::loadClassInstance('controllers', 'ParentController');
@@ -18,7 +19,8 @@
     <title>Espace des parents: login</title>
 </head>
 <body>
-<?php $header->create(); 
+    <?php $header->create(); 
+        $menu->create(6);
         $loginForm->create();
         if(!isset($_SESSION['parent_mail'])){
             if(isset($_POST['submit'])){
@@ -36,5 +38,6 @@
         }
 
         $footer->create(); ?>
+    <script src="./scripts/UtilScript.js"></script>
 </body>
 </html>

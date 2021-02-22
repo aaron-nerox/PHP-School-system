@@ -3,6 +3,7 @@
 
     $footer= Loader::loadClassInstance('views/components','Footer');
     $header= Loader::loadClassInstance('views/components','Header');
+    $menu = Loader::loadClassInstance('views/components','Menu');
     $diaporama = Loader::loadClassInstance('views/components','Slider');
 ?>
 <!DOCTYPE html>
@@ -16,8 +17,9 @@
 </head>
 <body>
     <?php $header->create();
-        $diaporama->create();?>
+        $diaporama->create();
+        $menu->create(6);?>
     <?php  $footer->create(); ?>
-    <script src="./scripts/diaporamaScript.js"></script>
+    <script src="./scripts/UtilScript.js"></script>
 </body>
 </html>
