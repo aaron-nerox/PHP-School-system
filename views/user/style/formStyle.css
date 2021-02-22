@@ -1,0 +1,35 @@
+.input{
+    font-family: 'CenturyGauthic';
+    background-color: rgba(110, 110, 110, 0.178);
+    border-radius: 1000px;
+    border-width: 0px;
+    padding-right: 10px;
+    padding-left: 10px;
+    height: 35px;
+    width: 20%;
+    text-align: center;
+}
+
+#submit{
+    font-family: 'samsungSans';
+    background-color: skyblue;
+    color: white;
+    font-weight: bold;
+    border-radius: 1000px;
+    border-width: 0px;
+    margin-bottom: 25px;
+    height: 35px;
+    width: 15%;
+    transition: ease-in-out 300ms;
+}
+
+#submit:hover{
+    background-color:blue;
+    border-width: 0px;
+}
+
+.form-label{
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: 'samsungSans';
+}

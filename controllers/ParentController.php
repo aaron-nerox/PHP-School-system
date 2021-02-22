@@ -1,6 +1,4 @@
 <?php
-include('../utils/Loader.php');
-
 
 class ParentController extends Loader{
     private $ModelArray;

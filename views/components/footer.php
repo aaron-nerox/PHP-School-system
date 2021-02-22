@@ -3,14 +3,6 @@
 class Footer{
 
     /**
-     * Adding the html code here in the contructor so 
-     * we only need to instanciate the class.
-     */
-    public function __construct(){
-        ob_start();
-    }
-
-    /**
      * 
      */
     public function create(){
@@ -21,8 +13,8 @@ class Footer{
                     <div class="footer-menu">
                         <ul>
                             <li><a href="./PresentationEcole.php">Presentation</a></li>
-                            <li><a href="./EspaceEleve.php">Espace d\'élèves</a></li>
-                            <li><a href="./EspaceParent.php">Espace des parents</a></li>
+                            <li><a href="./EspaceEleveLogin.php">Espace d\'élèves</a></li>
+                            <li><a href="./EspaceParentLogin.php">Espace des parents</a></li>
                             <li><a href="./CyclePrimaire.php">Cycle primaire</a></li>
                             <li><a href="./CycleMoyenne.php">Cycle moyenne</a></li>
                             <li><a href="./CycleSecondaire.php">Cycle secondaire</a></li>
@@ -42,12 +34,5 @@ class Footer{
                 </div>
                 <p class="important">&copy; 2020 ecole de formation.</p>
             </div>';
-    }
-
-    /**
-     * this is a function that destroys the view aka empties the data buffer
-     */
-    public function destroy(){
-        ob_end_clean();
     }
 }

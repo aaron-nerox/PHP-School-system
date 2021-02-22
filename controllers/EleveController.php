@@ -1,6 +1,4 @@
 <?php
-include('../utils/Loader.php');
-
 
 class EleveController extends Loader{
     private $ModelArray;

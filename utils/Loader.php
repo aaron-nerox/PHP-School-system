@@ -24,6 +24,7 @@
             '<link rel="stylesheet" href="style/mainStyle.css">
             <link rel="stylesheet" href="style/footerStyle.css">
             <link rel="stylesheet" href="style/headerStyle.css">
-            <link rel="stylesheet" href="style/diapoStyle.css">';
+            <link rel="stylesheet" href="style/diapoStyle.css">
+            <link rel="stylesheet" href="style/formStyle.css">';
         }
     }

@@ -23,8 +23,4 @@ class Header{
                 </div>
             </header>';
     }
-
-    public function destroy(){
-        ob_end_clean();
-    }
 }
