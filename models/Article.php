@@ -39,12 +39,34 @@ class Article extends Loader{
     }
 
     /**
+     * get all the articles belonging to one scope
+     */
+    public function getArticlesByScope($idScope){
+        $sql = "SELECT * FROM article WHERE id_scope = :id OR id_scope = 1";
+        $statment = $this->db_conn->prepare($sql);
+        $statment->execute(['id'=>$idScope]);
+
+        return $statment->fetchAll();
+    }
+
+    /**
      * get an article by it's ID
      */
     public function getArticleById($id){
         $sql = "SELECT * FROM article WHERE id_article= :id";
         $statment = $this->db_conn->prepare($sql);
         $statment->execute(['id'=>$id]);
+
+        return $statment->fetch();
+    }
+
+    /**
+     * a function that returns an article based on it's title
+     */
+    public function getArticleByName($name){
+        $sql = "SELECT * FROM article WHERE titre_article= :title";
+        $statment = $this->db_conn->prepare($sql);
+        $statment->execute(['title'=>$name]);
 
         return $statment->fetch();
     }

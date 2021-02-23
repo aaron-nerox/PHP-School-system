@@ -1,5 +1,4 @@
 <?php
-include('../utils/Loader.php');
 
 class ArticleController extends Loader{
 
@@ -19,10 +18,24 @@ class ArticleController extends Loader{
     }
 
     /**
+     * returns all the articles by thier scope
+     */
+    public function getArticlesByScope($idScope){
+        return $this->ModelArray['Article']->getArticlesByScope($idScope);
+    }
+
+    /**
      * returns an article by it's ID
      */
     public function getArticle($id){
         return $this->ModelArray['Article']->getArticleById($id);
+    }
+
+    /**
+     * returns an article by it's title
+     */
+    public function getArticleByName($name){
+        return $this->ModelArray['Article']->getArticleByName($name);
     }
 
     /**
@@ -48,10 +61,5 @@ class ArticleController extends Loader{
     }
 
 }
-
-
-//for testing
-$contr = new ArticleController();
-echo $contr->deleteArticle(3);
 
 

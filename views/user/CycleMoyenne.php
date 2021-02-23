@@ -5,6 +5,9 @@
     $header= Loader::loadClassInstance('views/components','Header');
     $diaporama = Loader::loadClassInstance('views/components','Slider');
     $menu = Loader::loadClassInstance('views/components','Menu');
+    $articlecard = Loader::loadClassInstance('views/components','ArticleCard');
+
+    $articleController = Loader::loadClassInstance('controllers','ArticleController');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,6 +22,8 @@
     <?php $header->create();
         $diaporama->create();
         $menu->create(3);
+        $articles = $articleController->getArticlesByScope(4);
+        $articlecard->render($articles);
         ?>
     <?php  $footer->create(); ?>
     <script src="./scripts/UtilScript.js"></script>
