@@ -30,7 +30,7 @@
     color: #555;
 }
 
-.social-icon{
+.s-icon{
     width: 30px;
     padding: 8px;
     margin: 5px;
@@ -38,7 +38,7 @@
     border-radius: 1000px;
 }
 
-.social-icon:hover{
+.s-icon:hover{
     background-color: rgb(255, 255, 255);
 }
 

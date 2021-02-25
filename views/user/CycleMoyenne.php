@@ -22,9 +22,55 @@
     <?php $header->create();
         $diaporama->create();
         $menu->create(3);
+    ?>
+    <center><p class="title">Découvrir le cycle moyen:</p></center>
+    <div class="articles-container">
+        <div class="info-card">
+            <p class="important info-title">les emplois du temps global du cycle</p>
+            <img src="../assets/icons/time.png" alt="time-icon" class="article-image" />
+            <p class="text info-text">
+                Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.
+            </p>
+            <a href="./Details.php?info_mode=emploi&cycle=moyen">
+                <button class="button-article">Afficher plus</button>
+            </a>
+        </div>
+        <div class="info-card">
+            <p class="important info-title">la list des ensiegnants du cycle</p>
+            <img src="../assets/icons/teachers.png" alt="time-icon" class="article-image" />
+            <p class="text info-text">
+                découvrire notre list d'enseignants et leur heur exact de reception, random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.
+            </p>
+            <a href="./Details.php?info_mode=ens&cycle=moyen">
+                <button class="button-article">Afficher plus</button>
+            </a>
+        </div>
+        <div class="info-card">
+            <p class="important info-title">Des informations pratiques sur le cycle</p>
+            <img src="../assets/icons/info.png" alt="time-icon" class="article-image" />
+            <p class="text info-text">
+                Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.
+            </p>
+            <a href="./articlePage.php?article=Un article sur le cycle primaire">
+                <button class="button-article">Afficher plus</button>
+            </a>
+        </div>
+        <div class="info-card">
+            <p class="important info-title">des informations sur la restauration</p>
+            <img src="../assets/icons/restau.png" alt="time-icon" class="article-image" />
+            <p class="text info-text">
+                Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.
+            </p>
+            <a href="./Details.php?info_mode=restau&cycle=moyen">
+                <button class="button-article">Afficher plus</button>
+            </a>
+        </div>
+    </div>
+    <center><p class="title">Nos articles concernant le cycle moyen:</p></center>
+    <?php
         $articles = $articleController->getArticlesByScope(4);
         $articlecard->render($articles);
-        ?>
+    ?>
     <?php  $footer->create(); ?>
     <script src="./scripts/UtilScript.js"></script>
 </body>

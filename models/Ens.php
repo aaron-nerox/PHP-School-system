@@ -64,6 +64,17 @@ class Ens extends Loader{
     }
 
     /**
+     * a function that returns the teachers by the cycle
+     */
+    public function getEnsByCycle($cycle){
+        $sql = "SELECT * FROM enseignant WHERE cycle_ens = :cycle";
+        $statment = $this->db_conn->prepare($sql);
+        $statment->execute(['cycle'=>$cycle]);
+
+        return $statment->fetchAll();
+    }
+
+    /**
      * a function that gets all the classes held by a specified teacher
      */
     public function getEnsClasses($idEns){

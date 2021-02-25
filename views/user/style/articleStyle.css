@@ -16,8 +16,22 @@
     text-align: center;
 }
 
+.info-card{
+    height: 400px;
+    border-radius: 25px;
+    background-color: rgb(241, 241, 241);
+    padding: 2%;
+    margin: 10px;
+    text-align: center;
+}
+
 .article-title{
     height: 10%;
+    overflow: hidden;
+}
+
+.info-title{
+    height: 15%;
     overflow: hidden;
 }
 
@@ -27,6 +41,11 @@
 
 .article-text{
     height: 240px;
+    overflow: hidden;
+}
+
+.info-text{
+    height: 150px;
     overflow: hidden;
 }
 
@@ -79,3 +98,4 @@
     font-size: 1.8em;
     text-align: justify;
 }
+

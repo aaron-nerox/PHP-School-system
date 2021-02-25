@@ -24,13 +24,13 @@ class Footer{
                 </div>
                 <div class="footer-social">
                         <a href="http://facebook.com" target="_blank">
-                            <img src="../assets/icons/fb.png" class="social-icon"></a>
+                            <img src="../assets/icons/fb.png" class="s-icon"></a>
                         <a href="http://instagram.com" target="_blank">
-                            <img src="../assets/icons/insta.png" class="social-icon"></a>
+                            <img src="../assets/icons/insta.png" class="s-icon"></a>
                         <a href="http://twitter.com" target="_blank">
-                            <img src="../assets/icons/twitter.png" class="social-icon"></a>
+                            <img src="../assets/icons/twitter.png" class="s-icon"></a>
                         <a href="http://youtube.com" target="_blank">
-                            <img src="../assets/icons/yt.png" class="social-icon"></a>
+                            <img src="../assets/icons/yt.png" class="s-icon"></a>
                 </div>
                 <p class="important">&copy; 2020 ecole de formation.</p>
             </div>';

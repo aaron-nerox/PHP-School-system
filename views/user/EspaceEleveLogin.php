@@ -22,6 +22,7 @@
     <?php $header->create();
         $menu->create(5); 
         $loginForm->create();
+        session_start();
         if(!isset($_SESSION['student_mail'])){
             if(isset($_POST['submit'])){
                 $student = $eleveControler->logIn($_POST['email'],$_POST['password']);

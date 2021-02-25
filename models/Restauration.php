@@ -22,4 +22,15 @@ class Restauration extends Loader{
         
         return $result;
     }
+
+    /**
+     * a function that gets all the meals
+     */
+    public function getAllMeals(){
+        $sql = "SELECT * FROM restaurant";
+        $statment = $this->db_conn->prepare($sql);
+        $statment->execute();
+        
+        return $statment->fetchAll();
+    }
 }

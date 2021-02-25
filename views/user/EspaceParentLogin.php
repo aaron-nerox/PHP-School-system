@@ -22,6 +22,7 @@
     <?php $header->create(); 
         $menu->create(6);
         $loginForm->create();
+        session_start();
         if(!isset($_SESSION['parent_mail'])){
             if(isset($_POST['submit'])){
                 $parent = $parentController->logIn($_POST['email'],$_POST['password']);

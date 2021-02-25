@@ -1,5 +1,4 @@
 <?php
-include('../utils/Loader.php');
 
 class RestauController extends Loader{
     private $ModelArray;
@@ -15,5 +14,12 @@ class RestauController extends Loader{
      */
     public function modifyMeal($newMeal, $day){
         return $this->ModelArray['Restauration']->updateMeal($newMeal, $day);
+    }
+
+    /**
+     * a function that returns all the meals of the week
+     */
+    public function getMeals(){
+        return $this->ModelArray['Restauration']->getAllMeals();
     }
 }

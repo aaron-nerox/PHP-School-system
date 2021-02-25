@@ -1,5 +1,4 @@
 <?php
-include('../utils/Loader.php');
 
 class EnsController extends Loader{
     private $ModelArray;
@@ -15,6 +14,13 @@ class EnsController extends Loader{
      */
     public function getTeachers(){
         return $this->ModelArray['Ens']->getEns();
+    }
+
+    /**
+     * a function that returns the list of teachers by cycle
+     */
+    public function getTeachersByCycle($cycle){
+        return $this->ModelArray['Ens']->getEnsByCycle($cycle);
     }
 
     /**

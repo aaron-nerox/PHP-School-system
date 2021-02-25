@@ -18,7 +18,7 @@ class Menu{
             <a '.$arrayLink[0].'>Acceuil</a>
             <a '.$arrayLink[1].'>Presentation</a>
             <a '.$arrayLink[2].'>Primaire</a>
-            <a '.$arrayLink[3].'>Moyenne</a>
+            <a '.$arrayLink[3].'>Moyen</a>
             <a '.$arrayLink[4].'>Secondaire</a>
             <a '.$arrayLink[5].'>Espace d\'élèves</a>
             <a '.$arrayLink[6].'>Espace des parents</a>
