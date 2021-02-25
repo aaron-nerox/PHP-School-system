@@ -63,3 +63,19 @@
     font-size: 2.2em;
     text-align: justify;
 }
+
+.main-presentation-container{
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.main-presentation-image{
+    width: 90%;
+}
+
+.main-presentation-text{
+    font-size: 1.8em;
+    text-align: justify;
+}

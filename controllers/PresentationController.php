@@ -1,5 +1,4 @@
 <?php
-include('../utils/Loader.php');
 
 class PresentationController extends Loader{
     private $ModelArray;
