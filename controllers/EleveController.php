@@ -17,6 +17,20 @@ class EleveController extends Loader{
     }
 
     /**
+     * a function that returns if the user logged out or not
+     */
+    public function logout(){
+        return $this->ModelArray['Eleve']->logOut();
+    }
+
+    /**
+     * a function that returns the student info
+     */
+    public function getStudent($email,$password){
+        return $this->ModelArray['Eleve']->getStudent($email,$password);
+    }
+
+    /**
      * gets the emploi of the student
      */
     public function getEmploi($idEmploi){

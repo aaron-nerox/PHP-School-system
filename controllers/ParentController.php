@@ -17,6 +17,20 @@ class ParentController extends Loader{
     }
 
     /**
+     * a function that returns the profile of the parent
+     */
+    public function getParent($email,$password){
+        return $this->ModelArray['SParent']->getParent($email,$password);
+    }
+
+    /**
+     * a function that returns if you logged out or not
+     */
+    public function logout(){
+        return $this->ModelArray['SParent']->logOut();
+    }
+
+    /**
      * returns a list of the sons profiles
      */
     public function getSonsList($idParent){

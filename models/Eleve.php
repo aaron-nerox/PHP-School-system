@@ -17,15 +17,11 @@ class Eleve extends Loader{
      */
     public function logIn($email,$password){
         if(!empty($email)&&!empty($password)){
-            $sql = "SELECT * FROM eleve WHERE email_eleve = :mail AND password_eleve = :pass";
-            $statement = $this->db_conn->prepare($sql);
-            $statement->execute(['mail'=>$email,'pass'=>$password]);
-            $result = $statement->fetch();
-            
+            $result = $this->getStudent($email,$password);
             if($result != null){
                 if($email===$result->email_eleve && $password===$result->password_eleve)
                 {
-                    $this->startSession($result->email_eleve);
+                    $this->startSession($result->email_eleve,$result->password_eleve);
                     return $result;
                 }else{
                     //error while trying to connect
@@ -37,6 +33,18 @@ class Eleve extends Loader{
             }
 
         }
+    }
+
+    /**
+     * a function to get a student based on the email and password
+     */
+    public function getStudent($email,$password){
+        $sql = "SELECT * FROM eleve WHERE email_eleve = :mail AND password_eleve = :pass";
+        $statement = $this->db_conn->prepare($sql);
+        $statement->execute(['mail'=>$email,'pass'=>$password]);
+        $result = $statement->fetch();
+
+        return $result;
     }
 
     /**
@@ -76,7 +84,7 @@ class Eleve extends Loader{
             foreach($results as $result){
                 //get the extra activity
                 $extraAct = $this->getExtraAct($result->id_activite);
-                $finalResult["$extraAct->id_activite"] = $extraAct->nom_activite;
+                $finalResult[] = $extraAct->nom_activite;
             }
         }
 
@@ -97,12 +105,13 @@ class Eleve extends Loader{
     /**
      * start the session
      */
-    private function startSession($username){
+    private function startSession($username,$password){
         session_start();
         $_SESSION['us'] = '1';
         $_SESSION['valid'] = true;
         $_SESSION['timeout'] = time();
         $_SESSION['student_mail'] = $username;
+        $_SESSION['student_pass'] = $password;
     }
 
     /**
@@ -110,6 +119,7 @@ class Eleve extends Loader{
      */
     public function logOut(){
         unset($_SESSION['student_mail']);
-        session_destroy();
+        unset($_SESSION['student_pass']);
+        return session_destroy();
     }
 }

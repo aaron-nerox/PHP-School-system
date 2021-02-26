@@ -68,6 +68,7 @@ table th {
 table thead{
     background-color: skyblue;
     color: white;
+    transition: 300ms ease-in-out;
 }
 
 table thead:hover{

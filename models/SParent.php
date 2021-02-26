@@ -17,15 +17,12 @@ class SParent extends Loader{
      */
     public function logIn($email,$password){
         if(!empty($email)&&!empty($password)){
-            $sql = "SELECT * FROM parent WHERE parent_email = :mail AND parent_password = :pass";
-            $statement = $this->db_conn->prepare($sql);
-            $statement->execute(['mail'=>$email,'pass'=>$password]);
-            $result = $statement->fetch();
+            $result = $this->getParent($email,$password);
             
             if($result != null){
                 if($email===$result->parent_email && $password===$result->parent_password)
                 {
-                    $this->startSession($result->parent_email);
+                    $this->startSession($result->parent_email,$result->parent_password);
                     return $result;
                 }else{
                     //error while trying to connect
@@ -38,6 +35,19 @@ class SParent extends Loader{
 
         }
     }
+
+    /**
+     * a function that gets the profile of the parent by it's email
+     */
+    public function getParent($email,$password){
+        $sql = "SELECT * FROM parent WHERE parent_email = :mail AND parent_password = :pass";
+            $statement = $this->db_conn->prepare($sql);
+            $statement->execute(['mail'=>$email,'pass'=>$password]);
+            $result = $statement->fetch();
+
+            return $result;
+    }
+
 
     /**
      * a function that gets the sons profiles
@@ -119,12 +129,13 @@ class SParent extends Loader{
     /**
      * start the session
      */
-    private function startSession($username){
+    private function startSession($username, $password){
         session_start();
         $_SESSION['us'] = '1';
         $_SESSION['valid'] = true;
         $_SESSION['timeout'] = time();
         $_SESSION['parent_mail'] = $username;
+        $_SESSION['parent_pass'] = $password;
     }
 
     /**
@@ -132,6 +143,7 @@ class SParent extends Loader{
      */
     public function logOut(){
         unset($_SESSION['parent_mail']);
-        session_destroy();
+        unset($_SESSION['parent_pass']);
+        return session_destroy();
     }
 }

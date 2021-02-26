@@ -1,6 +1,6 @@
 <?php
 
-class SParent extends Loader{
+class Admin extends Loader{
     private $db_conn;
 
     /**
@@ -13,26 +13,20 @@ class SParent extends Loader{
     }
 
     /**
-     * a function that logs in and returns the profile of a parent and starts a session
+     * a function that logs in and returns the profile of an admin and starts a session
      */
     public function logIn($email,$password){
-        $sMail = filter_var($email, FILTER_SANITIZE_EMAIL);
-        if(!empty($sMail)&&!empty($password)){
-            $sql = "SELECT * FROM 'admin' WHERE admin_email = :mail AND admin_password = :pass";
-            $statement = $this->db_conn->prepare($sql);
-            $statement->execute(['mail'=>$sMail,'pass'=>$password]);
-            $results = $statement->fetch();
+        if(!empty($email)&&!empty($password)){
+            $result = $this->getAdmin($email,$password);
             
-            if($results != null){
-                foreach($results as $result){
-                    if($sMail===$result->email_eleve && $password===$result->password_eleve)
-                    {
-                        $this->startSession();
-                        return $result;
-                    }else{
-                        //error while trying to connect
-                        return null;
-                    }
+            if($result != null){
+                if($email===$result->admin_email && $password===$result->admin_password)
+                {
+                    $this->startSession($result->admin_email,$result->admin_password);
+                    return $result;
+                }else{
+                    //error while trying to connect
+                    return null;
                 }
             }else{
                 //error of login password or email incorrect
@@ -40,6 +34,18 @@ class SParent extends Loader{
             }
 
         }
+    }
+
+    /**
+     * a function that gets the profile of the admin by it's email
+     */
+    public function getAdmin($email,$password){
+        $sql = "SELECT * FROM admin WHERE admin_email = :mail AND admin_password = :pass";
+            $statement = $this->db_conn->prepare($sql);
+            $statement->execute(['mail'=>$email,'pass'=>$password]);
+            $result = $statement->fetch();
+
+            return $result;
     }
 
     /**
@@ -52,16 +58,22 @@ class SParent extends Loader{
     /**
      * start the session
      */
-    private function startSession(){
+    private function startSession($username,$password){
         session_start();
         $_SESSION['us'] = '1';
+        $_SESSION['valid'] = true;
+        $_SESSION['timeout'] = time();
+        $_SESSION['admin_mail'] = $username;
+        $_SESSION['admin_pass'] = $password;
     }
 
     /**
      * end the session
      */
     private function endSession(){
-        session_destroy();
+        unset($_SESSION['admin_mail']);
+        unset($_SESSION['admin_pass']);
+        return session_destroy();
     }
 
 }

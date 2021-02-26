@@ -1,0 +1,58 @@
+.profile-container{
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-image{
+    width: 140px;
+    margin: 20px;
+    border-radius: 1000px;
+    border: 10px solid black;
+}
+
+.profile-image-parent{
+    width: 110px;
+    margin: 20px;
+    border-radius: 1000px;
+    border: 10px solid black;
+}
+
+.profile-description ul{
+    display: inline-block;
+    text-align: left;
+    margin: 0;
+}
+
+.profile-description ul li{
+    list-style: none;
+    text-decoration: none;
+    font-size: 1.4em;
+    margin: 0px;
+    color: black;
+    transition: 200ms ease-in-out;
+}
+
+.profile-description ul li:hover{
+    color: #666;
+}
+
+.button-logout{
+    font-family: 'samsungSans';
+    background-color: skyblue;
+    color: white;
+    font-weight: bold;
+    border-radius: 1000px;
+    border-width: 0px;
+    margin-bottom: 25px;
+    height: 35px;
+    width: 50%;
+    transition: ease-in-out 300ms;
+}
+
+.button-logout:hover{
+    background-color:rgb(0, 132, 255);
+    border-width: 0px;
+}
