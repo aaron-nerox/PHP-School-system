@@ -53,12 +53,11 @@
     <?php 
         $miniCard->create('Gestion des articles','article','Ajouter ou surprimer un article','./articleManager.php');
         $miniCard->create('Gestion de presentation','presentation','Modifier en ajoutant ou surprimant des paragraphs','./presentationManager.php');
-        $miniCard->create('This is the setting1','acc','this is the description','./articleManager.php');
-        $miniCard->create('This is the setting1','acc','this is the description','./articleManager.php');
-        $miniCard->create('This is the setting1','acc','this is the description','./articleManager.php');
-        $miniCard->create('This is the setting1','acc','this is the description','./articleManager.php');
-        $miniCard->create('This is the setting1','acc','this is the description','./articleManager.php');
-        $miniCard->create('This is the setting1','acc','this is the description','./articleManager.php');
+        $miniCard->create('Gestion d\'emplois','time','Ajouter, Modifier ou suprimer les emplois','./emploiManager.php');
+        $miniCard->create('Gestion des enseignants','teachers','Modifier leur classes et heurs de reception','./ensManager.php');
+        $miniCard->create('Gestion des utilisateurs','users','Modifier les info des utilisateurs','./userManager.php');
+        $miniCard->create('Gestion de restauration','restau','Modifier les informations sur la restauration','./restauManager.php');
+        $miniCard->create('Gestion de diaporama','presentation','Ajouter ou surprimer des images','./diapoManager.php');
     ?>
     </div>
     <?php $footer->createMinified(); ?>

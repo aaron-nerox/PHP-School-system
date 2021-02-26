@@ -12,7 +12,7 @@ class Slider{
         $images = $this->diapo->getAllImages();
             echo '<div class="diaporama-container">';
             foreach($images as $image){
-                echo "<img src=\"$image->lien_img_diaporama\" class=\"diapo w3-animate-top\">";
+                echo "<img src=\"http://localhost/projettdw/storage/$image->lien_img_diaporama\" class=\"diapo w3-animate-top\">";
             }
             echo '</div>';
     }
