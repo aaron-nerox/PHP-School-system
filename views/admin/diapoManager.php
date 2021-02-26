@@ -14,7 +14,7 @@
     $diapoController =Loader::loadClassInstance('controllers', 'DiapoController');
 
     /**
-     * add an article
+     * add an image
      */
     if(isset($_POST['add-image'])){
 
@@ -26,7 +26,7 @@
     }
 
     /**
-     * remove an article
+     * remove an image
      */
     if(isset($_GET['delimg'])){
         $id = htmlentities($_GET['delimg']);

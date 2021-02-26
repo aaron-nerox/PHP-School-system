@@ -24,6 +24,17 @@ class Restauration extends Loader{
     }
 
     /**
+     * a function to modify a dessert in a specific day
+     */
+    public function updateDessert($newDessert, $day){
+        $sql = "UPDATE restaurant SET nom_dessert = :updt WHERE jour_repas = :dayWeek";
+        $statment = $this->db_conn->prepare($sql);
+        $result = $statment->execute(['updt'=>$newDessert,'dayWeek'=>$day]);
+        
+        return $result;
+    }
+
+    /**
      * a function that gets all the meals
      */
     public function getAllMeals(){
