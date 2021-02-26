@@ -47,7 +47,10 @@ class EnsController extends Loader{
     /**
      * a function that returns if a teachers class hour is changed or not
      */
-    public function modifyEnsClassHour($class,$newHour,$idEns){
-        return $this->ModelArray['Ens']->modifyHourClassTeacher($class,$newHour,$idEns);
+    public function modifyEnsHours($class,$newClass,$newHour,$idEns){
+        $result1 = $this->ModelArray['Ens']->modifyClass($class ,$newClass, $idEns);
+        $result2 = $this->ModelArray['Ens']->modifyHourClassTeacher($class,$newHour,$idEns);
+
+        return $result1 && $result2;
     }
 }
