@@ -27,7 +27,9 @@
     <div class="main-presentation-container" >
         <?php foreach($paragraphs as $paragraph): ?>
             <div>
-                <img class="main-presentation-image" src="<?php echo $paragraph->lien_image_pres; ?>" alt="image">
+                <?php if($paragraph->lien_image_pres != ''): ?>
+                    <img class="main-presentation-image" src="http://localhost/projettdw/storage/<?php echo $paragraph->lien_image_pres; ?>" alt="image">
+                <?php endif; ?>
                 <p class="text main-presentation-text"><?php echo $paragraph->paragraphe_pres; ?></p>
             </div>
         <?php endforeach; ?>

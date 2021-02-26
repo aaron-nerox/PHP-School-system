@@ -35,4 +35,24 @@ class Footer{
                 <p class="important">&copy; 2020 ecole de formation.</p>
             </div>';
     }
+
+    public function createMinified(){
+        echo '
+            <div class="footer-container">
+                <div class="inner-container">
+                    <img src="../assets/icons/logo.png" class="footer-logo"/>
+                </div>
+                <div class="footer-social">
+                        <a href="http://facebook.com" target="_blank">
+                            <img src="../assets/icons/fb.png" class="s-icon"></a>
+                        <a href="http://instagram.com" target="_blank">
+                            <img src="../assets/icons/insta.png" class="s-icon"></a>
+                        <a href="http://twitter.com" target="_blank">
+                            <img src="../assets/icons/twitter.png" class="s-icon"></a>
+                        <a href="http://youtube.com" target="_blank">
+                            <img src="../assets/icons/yt.png" class="s-icon"></a>
+                </div>
+                <p class="important">&copy; 2020 ecole de formation.</p>
+            </div>';
+    }
 }

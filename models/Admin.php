@@ -49,13 +49,6 @@ class Admin extends Loader{
     }
 
     /**
-     * log out
-     */
-    public function logOut(){
-        $this->endSession();
-    }
-
-    /**
      * start the session
      */
     private function startSession($username,$password){
@@ -68,9 +61,9 @@ class Admin extends Loader{
     }
 
     /**
-     * end the session
+     * log out
      */
-    private function endSession(){
+    public function logOut(){
         unset($_SESSION['admin_mail']);
         unset($_SESSION['admin_pass']);
         return session_destroy();

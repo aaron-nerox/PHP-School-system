@@ -17,6 +17,13 @@ class PresentationController extends Loader{
     }
 
     /**
+     * a function that returns if a paragraph is added or not
+     */
+    public function addParagraph($text,$imgLink){
+        return $this->ModelArray['Presentation']->addParagraph($text,$imgLink);
+    }
+
+    /**
      * a function that returns if the image is added to the paragraph or not
      */
     public function addImage($id,$link){

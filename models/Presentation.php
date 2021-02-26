@@ -46,6 +46,19 @@ class Presentation extends Loader{
     }
 
     /**
+     * a function that adds the paragraph to the database
+     */
+    public function addParagraph($text,$link){
+        $sql = 'INSERT INTO 
+        presentation(paragraphe_pres,lien_image_pres) 
+        VALUES(:paragraph,:link)';
+        $statment = $this->db_conn->prepare($sql);
+        $result = $statment->execute(['paragraph'=>$text,'link'=>$link]);
+        
+        return $result;
+    }
+
+    /**
      * a function to modify a paragraph
      */
     public function updateParagraph($newText,$id){

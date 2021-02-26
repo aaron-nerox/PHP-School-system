@@ -3,6 +3,7 @@
 
     //loading the components
     $header= Loader::loadClassInstance('views/components','Header');
+    $footer= Loader::loadClassInstance('views/components','Footer');
     $loginForm = Loader::loadClassInstance('views/components', 'LoginForm');
 
     $adminController = Loader::loadClassInstance('controllers', 'AdminController');
@@ -33,7 +34,9 @@
             }
         }else{
             header('Location: ./EspaceAdmin.php');
-        }?>
+        }
+        $footer->createMinified(); 
+    ?>
     <script src="./scripts/UtilScript.js"></script>
 </body>
 </html>

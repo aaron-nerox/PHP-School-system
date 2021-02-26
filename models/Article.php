@@ -18,7 +18,7 @@ class Article extends Loader{
      */
     public function addArticle($titleArticle, $description, $imageLink, $scope){
         $sql = 'INSERT INTO 
-        article(titre_article,lien_image_article,description_article,id_scope) 
+        article(titre_article,description_article,lien_image_article,id_scope) 
         VALUES(:title,:ar_desc,:link,:scope)';
         $statment = $this->db_conn->prepare($sql);
         $result = $statment->execute(['title'=>$titleArticle

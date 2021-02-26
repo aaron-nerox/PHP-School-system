@@ -23,4 +23,11 @@ class AdminController extends Loader{
         return $this->ModelArray['Admin']->getAdmin($email,$password);
     }
 
+    /**
+     * a function that returns if the admin is logged out or not
+     */
+    public function logout(){
+        return $this->ModelArray['Admin']->logOut();
+    }
+
 }
