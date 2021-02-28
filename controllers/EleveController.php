@@ -24,6 +24,13 @@ class EleveController extends Loader{
     }
 
     /**
+     * a function that returns all the students
+     */
+    public function getAllStudents(){
+        return $this->ModelArray['Eleve']->getStudents();
+    }
+
+    /**
      * a function that returns the student info
      */
     public function getStudent($email,$password){
@@ -49,5 +56,12 @@ class EleveController extends Loader{
      */
     public function getExtraActs($id){
         return $this->ModelArray['Eleve']->getExtraActByStudent($id);
+    }
+
+   /**
+    * a function that returns if a student is deleted or not
+    */
+    public function deleteStudent($id){
+        return $this->ModelArray['Eleve']->deleteStudent($id);
     }
 }

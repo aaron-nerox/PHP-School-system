@@ -17,6 +17,13 @@ class ParentController extends Loader{
     }
 
     /**
+     * a function that returns all parents
+     */
+    public function getParents(){
+        return  $this->ModelArray['SParent']->getParents();
+    }
+
+    /**
      * a function that returns the profile of the parent
      */
     public function getParent($email,$password){
@@ -63,5 +70,12 @@ class ParentController extends Loader{
      */
     public function getExtraActs($id){
         return $this->ModelArray['SParent']->getExtraActByStudent($id);
+    }
+
+    /**
+     * a function that returns if a parent is deleted or not
+     */
+    public function deleteParent($id){
+        return $this->ModelArray['SParent']->deleteParent($id);
     }
 }

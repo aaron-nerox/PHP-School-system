@@ -36,6 +36,18 @@ class Eleve extends Loader{
     }
 
     /**
+     * a function to get all the students
+     */
+    public function getStudents(){
+        $sql = "SELECT * FROM eleve";
+        $statement = $this->db_conn->prepare($sql);
+        $statement->execute();
+        $result = $statement->fetchAll();
+
+        return $result;
+    }
+
+    /**
      * a function to get a student based on the email and password
      */
     public function getStudent($email,$password){
@@ -121,5 +133,16 @@ class Eleve extends Loader{
         unset($_SESSION['student_mail']);
         unset($_SESSION['student_pass']);
         return session_destroy();
+    }
+
+     /**
+     * a function that deletes a student
+     */
+    public function deleteStudent($id){
+        $sql = "DELETE FROM eleve WHERE id_eleve = :id";
+        $statment = $this->db_conn->prepare($sql);
+        $result = $statment->execute(['id'=>$id]);
+
+        return $result;
     }
 }

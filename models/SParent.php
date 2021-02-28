@@ -37,15 +37,27 @@ class SParent extends Loader{
     }
 
     /**
+     * a function that gets all the parents
+     */
+    public function getParents(){
+        $sql = "SELECT * FROM parent";
+        $statement = $this->db_conn->prepare($sql);
+        $statement->execute();
+        $result = $statement->fetchAll();
+
+        return $result;
+    }
+
+    /**
      * a function that gets the profile of the parent by it's email
      */
     public function getParent($email,$password){
         $sql = "SELECT * FROM parent WHERE parent_email = :mail AND parent_password = :pass";
-            $statement = $this->db_conn->prepare($sql);
-            $statement->execute(['mail'=>$email,'pass'=>$password]);
-            $result = $statement->fetch();
+        $statement = $this->db_conn->prepare($sql);
+        $statement->execute(['mail'=>$email,'pass'=>$password]);
+        $result = $statement->fetch();
 
-            return $result;
+        return $result;
     }
 
 
@@ -145,5 +157,16 @@ class SParent extends Loader{
         unset($_SESSION['parent_mail']);
         unset($_SESSION['parent_pass']);
         return session_destroy();
+    }
+
+    /**
+     * a function that deletes a parent
+     */
+    public function deleteParent($id){
+        $sql = "DELETE FROM parent WHERE id_parent = :id";
+        $statment = $this->db_conn->prepare($sql);
+        $result = $statment->execute(['id'=>$id]);
+
+        return $result;
     }
 }

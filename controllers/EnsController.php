@@ -53,4 +53,11 @@ class EnsController extends Loader{
 
         return $result1 && $result2;
     }
+
+    /**
+     * return if the ens is deleted or not
+     */
+    public function deleteEns($idEns){
+        return $this->ModelArray['Ens']->deleteEns($idEns);
+    }
 }

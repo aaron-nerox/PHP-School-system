@@ -110,3 +110,21 @@ table thead:hover{
     width: 20%;
     text-align: center;
 }
+
+.mn-button{
+    min-width: 60%;
+    font-family: 'samsungSans';
+    background-color: skyblue;
+    color: white;
+    font-weight: bold;
+    border-radius: 1000px;
+    border-width: 0px;
+    margin-bottom: 25px;
+    height: 35px;
+    transition: ease-in-out 300ms;
+}
+
+.mn-button:hover{
+    background-color:rgb(0, 132, 255);
+    border-width: 0px;
+}

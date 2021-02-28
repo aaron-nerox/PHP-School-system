@@ -120,4 +120,16 @@ class Ens extends Loader{
     public function modifyNote(){
         
     }
+
+    /**
+     * a function that deletes a teacher
+     */
+    public function deleteEns($idEns){
+        $sql = "DELETE FROM enseignant WHERE id_enseignant = :id";
+        $statment = $this->db_conn->prepare($sql);
+        $result = $statment->execute(['id'=>$idEns]);
+
+        return $result;
+    }
+
 }
