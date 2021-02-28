@@ -66,6 +66,15 @@ class ParentController extends Loader{
     }
 
     /**
+     * a function that returns the teacher by it's id
+     */
+    public function getTeacherById($id){
+        $result = $this->ModelArray['SParent']->getTeacherById($id);
+
+        return $result->nom_ens.' '.$result->prenom_ens;
+    }
+
+    /**
      * get the list of extra activities
      */
     public function getExtraActs($id){

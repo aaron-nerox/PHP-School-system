@@ -106,6 +106,18 @@ class SParent extends Loader{
     }
 
     /**
+     * get teacher by it's id
+     */
+    public function getTeacherById($id){
+        $sql = "SELECT * FROM enseignant WHERE id_enseignant = :id";
+        $statement = $this->db_conn->prepare($sql);
+        $statement->execute(['id'=>$id]);
+        $result = $statement->fetch();
+
+        return $result;
+    }
+
+    /**
      * a function that gets all the extraScolar activities for a student
      */
     public function getExtraActByStudent($idStudent){

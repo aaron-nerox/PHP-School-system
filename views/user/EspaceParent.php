@@ -5,16 +5,17 @@
     $footer= Loader::loadClassInstance('views/components','Footer');
     $header= Loader::loadClassInstance('views/components','Header');
 
-    $parentControler = Loader::loadClassInstance('controllers', 'ParentController');
+    $parentController = Loader::loadClassInstance('controllers', 'ParentController');
 
     session_start();
     if(!isset($_SESSION['parent_mail'])){
         header('Location: ./EspaceEleveLogin.php');
     }
-    $parent = $parentControler->getParent($_SESSION['parent_mail'], $_SESSION['parent_pass']);
 
+    $parent = $parentController->getParent($_SESSION['parent_mail'], $_SESSION['parent_pass']);
+    $sons = $parentController->getSonsList($parent->id_parent);
     if(isset($_POST['logout'])){
-        $status = $parentControler->logout();
+        $status = $parentController->logout();
         if($status){
             header('Location: ./EspaceEleveLogin.php');
         }else{
@@ -49,6 +50,28 @@
         </form>
         <hr>
     </div>
+    <center><p class="title">vos enfants</p></center>
+    <table>
+        <thead>
+            <th>Enfant</th>
+            <th>Anné d'étude</th>
+            <th>Cycle</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            <?php
+                foreach($sons as $student): ?>
+                <tr>
+                    <th class="important"><?php echo $student->nom_eleve.' '.$student->prenom_eleve; ?></th>
+                    <th class="important"><?php echo $student->anne_etude; ?></th>
+                    <th class="important"><?php echo $student->class_eleve; ?></th>
+                    <th>
+                    <a href="./studentDetails.php?student=<?php echo $student->id_eleve; ?>"><button class="mn-button">Voir le profile</button></a>
+                    </th>
+                </tr>
+            <?php endforeach;?>
+        </tbody>
+    </table>
     <?php $footer->create(); ?>
 </body>
 </html>

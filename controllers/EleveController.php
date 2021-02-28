@@ -38,6 +38,13 @@ class EleveController extends Loader{
     }
 
     /**
+     * a function that returns the student based on id
+     */
+    public function getStudentById($id){
+        return $this->ModelArray['Eleve']->getStudentById($id);
+    }
+
+    /**
      * gets the emploi of the student
      */
     public function getEmploi($idEmploi){

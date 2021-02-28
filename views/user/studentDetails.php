@@ -7,23 +7,13 @@
 
     $eleveControler = Loader::loadClassInstance('controllers', 'EleveController');
     $controller = Loader::loadClassInstance('controllers', 'EmploiController');
+    $parentController = Loader::loadClassInstance('controllers', 'ParentController');
 
     $times = ['8:00','10:00','12:00','13:00'];
     $days = ['dimanch', 'lundi','mardi','mercredi','jeudi'];
 
-    session_start();
-    if(!isset($_SESSION['student_mail'])){
-        header('Location: ./EspaceEleveLogin.php');
-    }
-    $student = $eleveControler->getStudent($_SESSION['student_mail'], $_SESSION['student_pass']);
-
-    if(isset($_POST['logout'])){
-        $status = $eleveControler->logout();
-        if($status){
-            header('Location: ./EspaceEleveLogin.php');
-        }else{
-            echo 'error';
-        }
+    if(isset($_GET['student'])){
+        $student = $eleveControler->getStudentById($_GET['student']);
     }
 ?>
 <!DOCTYPE html>
@@ -33,7 +23,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php Loader::loadStyleSheets('')?>
-    <title>Espace des élèves</title>
+    <title>Les details d'enfant</title>
 </head>
 <body>
     <?php $header->create(); ?>
@@ -49,13 +39,10 @@
                 </ul>
             </div>
         </div>
-        <form method="post">
-        <input type="submit" name="logout" id="logout" class="button-logout" value="Logout" />
-        </form>
         <hr>
     </div>
     
-    <center><p class="title">votre emploi du temps</p></center>
+    <center><p class="title">emploi du temps</p></center>
     <table>
             <thead>
                 <th></th>
@@ -76,7 +63,7 @@
             </tbody>
         </table>
 
-    <center><p class="title">vos notes</p></center>
+    <center><p class="title">Les notes</p></center>
     <table>
         <thead>
             <th>Class</th>
@@ -92,7 +79,7 @@
             <?php endforeach;?>
         </tbody>
     </table>
-    <center><p class="title">vos activités extrascolaires</p></center>
+    <center><p class="title">Les activités extrascolaires</p></center>
     <table>
         <thead>
             <th>Nom d'activité</th>
@@ -106,6 +93,23 @@
             <?php endfor;?>
         </tbody>
     </table>
+    <center><p class="title">Les remarques de ses enseignants</p></center>
+    <table>
+        <thead>
+            <th>Enseignant</th>
+            <th>Leur remarque</th>
+        </thead>
+        <tbody>
+            <?php $remarques = $parentController->getSonRemarques($student->id_eleve); 
+                foreach($remarques as $remarque): ?>
+                <tr>
+                    <th><?php echo $parentController->getTeacherById($remarque->id_enseignant); ?></th>
+                    <th><?php echo $remarque->remarque_detail; ?></th>
+                </tr>
+                <?php endforeach; ?>
+        </tbody>
+    </table>
+    <br><br>
     <?php $footer->create(); ?>
 </body>
 </html>

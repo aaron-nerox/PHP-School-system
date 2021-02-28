@@ -4,12 +4,12 @@
     $footer= Loader::loadClassInstance('views/components','Footer');
     $header= Loader::loadClassInstance('views/components','Header');
 
-    //TODO : Add the emploi option
-
     $infoMode;
     $cycle;
     $pageTitle;
     $controller;
+    $times = ['8:00','10:00','12:00','13:00'];
+    $days = ['dimanch', 'lundi','mardi','mercredi','jeudi'];
 
     if(isset($_GET['info_mode']) && isset($_GET['cycle'])){
         $infoMode = htmlentities($_GET['info_mode']);
@@ -17,6 +17,7 @@
         switch($infoMode){
             case 'emploi':
                 $pageTitle = 'La list des emplois de temps';
+                $controller = Loader::loadClassInstance('controllers', 'EmploiController');
                 break;
             case 'ens':
                 $pageTitle = 'La list des enseignants';
@@ -44,7 +45,26 @@
 <body>
     <?php $header->create();
      if($infoMode === 'emploi'): ?>
-        <center><p class="title">Les emplois de temps des cycles <?php echo $cycle; ?>:</p></center>
+        <center><p class="title">Les emplois de temps de cycle <?php echo $cycle; ?>:</p></center>
+        <table>
+            <thead>
+                <th></th>
+                <th>8:00 -> 10:00</th>
+                <th>10:00 -> 12:00</th>
+                <th>12:00 -> 13:00</th>
+                <th>13:00 -> 15:00</th>
+            </thead>
+            <tbody>
+                <?php for($x = 0; $x<5; $x++): ?>
+                <tr>
+                    <td><?php echo $days[$x]; ?></th>
+                    <?php for($i=0; $i<4; $i++): ?>
+                    <th><?php echo $controller->getClassFromEmploi('sec_1',$days[$x],$times[$i]);?></th>
+                    <?php endfor; ?>
+                </tr>
+                <?php endfor; ?>
+            </tbody>
+        </table>
     <?php elseif($infoMode === 'ens'): ?>
         <center><p class="title">La list de notre ensiegnants:</p></center>
         <table>

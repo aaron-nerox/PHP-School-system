@@ -60,6 +60,18 @@ class Eleve extends Loader{
     }
 
     /**
+     * get a student by it's id
+     */
+    public function getStudentById($id){
+        $sql = "SELECT * FROM eleve WHERE id_eleve = :id";
+        $statement = $this->db_conn->prepare($sql);
+        $statement->execute(['id'=>$id]);
+        $result = $statement->fetch();
+
+        return $result;
+    }
+
+    /**
      * a function to get the emploi
      */
     public function getEmploi($idEmploi){

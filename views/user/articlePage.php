@@ -26,7 +26,7 @@
     <?php $header->create();?>
     <div class="main-article-container">
         <p class="title"><?php echo $article->titre_article; ?></p>
-        <img class="main-article-image" src="<?php echo $article->lien_image_article; ?>" alt="image" />
+        <img class="main-article-image" src="http://localhost/projettdw/storage/<?php echo $article->lien_image_article; ?>" alt="image" />
         <p class="text main-article-text"><?php echo $article->description_article; ?></p>
     </div>
     <?php $footer->create(); ?>
