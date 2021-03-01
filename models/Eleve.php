@@ -72,6 +72,17 @@ class Eleve extends Loader{
     }
 
     /**
+     * a function that modifies a student's profile
+     */
+    public function updateStudent($id,$field,$value){
+        $sql = "UPDATE eleve SET $field = :updt WHERE id_eleve = :id";
+        $statment = $this->db_conn->prepare($sql);
+        $result = $statment->execute(['updt'=>$value,'id'=>$id]);
+        
+        return $result;
+    }
+
+    /**
      * a function to get the emploi
      */
     public function getEmploi($idEmploi){

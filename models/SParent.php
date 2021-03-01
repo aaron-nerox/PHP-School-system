@@ -118,6 +118,29 @@ class SParent extends Loader{
     }
 
     /**
+     * get parent by it's id
+     */
+    public function getParentById($id){
+        $sql = "SELECT * FROM parent WHERE id_parent = :id";
+        $statement = $this->db_conn->prepare($sql);
+        $statement->execute(['id'=>$id]);
+        $result = $statement->fetch();
+
+        return $result;
+    }
+
+    /**
+     * a function that modifies the parent's info
+     */
+    public function updateParent($id,$field,$value){
+        $sql = "UPDATE parent SET $field = :updt WHERE id_parent = :id";
+        $statment = $this->db_conn->prepare($sql);
+        $result = $statment->execute(['updt'=>$value,'id'=>$id]);
+        
+        return $result;
+    }
+
+    /**
      * a function that gets all the extraScolar activities for a student
      */
     public function getExtraActByStudent($idStudent){

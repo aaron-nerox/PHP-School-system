@@ -45,6 +45,13 @@ class EleveController extends Loader{
     }
 
     /**
+     * a function that returns if a student's profile is updated or not
+     */
+    public function updateStudent($id,$field,$value){
+        return $this->ModelArray['Eleve']->updateStudent($id,$field,$value);
+    }
+
+    /**
      * gets the emploi of the student
      */
     public function getEmploi($idEmploi){

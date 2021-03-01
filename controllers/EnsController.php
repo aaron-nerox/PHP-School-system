@@ -17,6 +17,20 @@ class EnsController extends Loader{
     }
 
     /**
+     * a function that returns a teacher based on id
+     */
+    public function getTeacherById($id){
+        return $this->ModelArray['Ens']->getTeacherById($id);
+    }
+
+    /**
+     * a function that returns if a teacher's info is uodated or not
+     */
+    public function updateTeacher($id,$field,$value){
+        return $this->ModelArray['Ens']->updateEns($id,$field,$value);
+    }
+
+    /**
      * a function that returns the list of teachers by cycle
      */
     public function getTeachersByCycle($cycle){

@@ -9,7 +9,7 @@
 
     session_start();
     if(!isset($_SESSION['parent_mail'])){
-        header('Location: ./EspaceEleveLogin.php');
+        header('Location: ./EspaceParentLogin.php');
     }
 
     $parent = $parentController->getParent($_SESSION['parent_mail'], $_SESSION['parent_pass']);
@@ -17,7 +17,7 @@
     if(isset($_POST['logout'])){
         $status = $parentController->logout();
         if($status){
-            header('Location: ./EspaceEleveLogin.php');
+            header('Location: ./EspaceParentLogin.php');
         }else{
             echo 'error';
         }

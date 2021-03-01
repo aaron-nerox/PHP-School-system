@@ -31,6 +31,20 @@ class ParentController extends Loader{
     }
 
     /**
+     * returns the parent based on id
+     */
+    public function getParentById($id){
+        return $this->ModelArray['SParent']->getParentById($id);
+    }
+
+    /**
+     * returns if a parent's pfoile is updated or not
+     */
+    public function updateParent($id,$field,$value){
+        return $this->ModelArray['SParent']->updateParent($id,$field,$value);
+    }
+
+    /**
      * a function that returns if you logged out or not
      */
     public function logout(){

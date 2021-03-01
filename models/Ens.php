@@ -53,6 +53,17 @@ class Ens extends Loader{
     }
 
     /**
+     * a function that modifies the teacher's info
+     */
+    public function updateEns($idEns,$field,$value){
+        $sql = "UPDATE enseignant SET $field = :updt WHERE id_enseignant = :id";
+        $statment = $this->db_conn->prepare($sql);
+        $result = $statment->execute(['updt'=>$value,'id'=>$idEns]);
+        
+        return $result;
+    }
+
+    /**
      * a function that gets all the teachers
      */
     public function getEns(){
@@ -61,6 +72,18 @@ class Ens extends Loader{
         $statment->execute();
 
         return $statment->fetchAll();
+    }
+
+    /**
+     * get teacher by it's id
+     */
+    public function getTeacherById($id){
+        $sql = "SELECT * FROM enseignant WHERE id_enseignant = :id";
+        $statement = $this->db_conn->prepare($sql);
+        $statement->execute(['id'=>$id]);
+        $result = $statement->fetch();
+
+        return $result;
     }
 
     /**
@@ -105,20 +128,6 @@ class Ens extends Loader{
         $statment->execute(['id'=>$idEmploi]);
 
         return $statment->fetch();
-    }
-
-    /**
-     * assign a note to a student in his class
-     */
-    public function addNote(){
-        //TODO
-    }
-
-    /**
-     * modify a note
-     */
-    public function modifyNote(){
-        
     }
 
     /**
