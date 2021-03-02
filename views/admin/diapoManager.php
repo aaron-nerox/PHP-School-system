@@ -66,7 +66,7 @@
                     <th><img src="http://localhost/projettdw/storage/<?php echo $image->lien_img_diaporama; ?>" alt="image" class="table-img"></th>
                     <th>
                         <a href="./diapoManager.php?delimg=<?php echo $image->id_diaporama;?>">
-                            <button class="del-button" >Suprimmer</button>
+                            <button class="mn-button" >Suprimmer</button>
                         </a>
                     </th>
                 </tr>

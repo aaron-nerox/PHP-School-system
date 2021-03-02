@@ -39,7 +39,6 @@
                 </ul>
             </div>
         </div>
-        <hr>
     </div>
     
     <center><p class="title">emploi du temps</p></center>

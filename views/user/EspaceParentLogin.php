@@ -20,8 +20,9 @@
 </head>
 <body>
     <?php $header->create(); 
-        $menu->create(6);
-        $loginForm->create();
+        $menu->create(6);?>
+    <br><br>
+    <?php $loginForm->create();
         session_start();
         if(!isset($_SESSION['parent_mail'])){
             if(isset($_POST['submit'])){
@@ -36,9 +37,9 @@
             }
         }else{
             header('Location: ./EspaceParent.php');
-        }
-
-        $footer->create(); ?>
+        }?>
+    <br><br>
+    <?php $footer->create(); ?>
     <script src="./scripts/UtilScript.js"></script>
 </body>
 </html>

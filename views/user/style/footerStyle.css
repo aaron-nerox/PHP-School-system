@@ -1,8 +1,14 @@
 .footer-container{
-    background-color: rgb(224, 224, 224);
     text-align: center;
     margin: 0px;
     padding: 20px;
+    background: rgba( 255, 255, 255, 0.20 );
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur( 7.5px );
+    -webkit-backdrop-filter: blur( 7.5px );
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 .inner-container{
@@ -23,12 +29,12 @@
 .footer-menu ul li a{
     text-decoration: none;
     font-family: 'samsungSans';
-    color: black;
+    color: #fefefe;
     transition: 200ms ease-in-out;
 }
 
 .footer-menu ul li a:hover{
-    color: #555;
+    color: #fefefe7a;
 }
 
 .s-icon{
@@ -40,9 +46,19 @@
 }
 
 .s-icon:hover{
-    background-color: rgb(255, 255, 255);
+    background-color: #00AAFF;
 }
 
 .footer-logo{
     width: 120px;
+}
+
+@media only screen and (max-width: 720px){
+    .inner-container{
+        flex-direction: column;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1281px) {
+
 }

@@ -86,7 +86,7 @@
                     <th class="text"><?php echo $article->date_article; ?></th>
                     <th>
                         <a href="./articleManager.php?delArticle=<?php echo $article->id_article;?>">
-                            <button class="del-button" >Suprimmer</button>
+                            <button class="mn-button" >Suprimmer</button>
                         </a>
                     </th>
                 </tr>

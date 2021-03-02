@@ -52,7 +52,7 @@
                 <option value="primaire">Primaire</option>
                 <option value="moyen">Moyen</option>
                 <option value="secondaire">Secondaire</option>
-            </select>
+            </select><br><br>
             <table>
                 <thead>
                     <th></th>

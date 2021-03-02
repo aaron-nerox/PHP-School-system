@@ -71,7 +71,7 @@
                     <th class="important"><?php echo $paragraph->paragraphe_pres; ?></th>
                     <th>
                         <a href="./presentationManager.php?delPar=<?php echo $paragraph->id_paragraphe;?>">
-                            <button class="del-button" >Suprimmer</button>
+                            <button class="mn-button" >Suprimmer</button>
                         </a>
                     </th>
                 </tr>

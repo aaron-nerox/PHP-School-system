@@ -49,10 +49,10 @@
                 </ul>
             </div>
         </div>
+        <br><br>
         <form method="post">
-        <input type="submit" name="logout" id="logout" class="button-logout" value="Logout" />
+        <input type="submit" name="logout" id="logout" class="mn-button" value="Logout" />
         </form>
-        <hr>
     </div>
     
     <center><p class="title">votre emploi du temps</p></center>

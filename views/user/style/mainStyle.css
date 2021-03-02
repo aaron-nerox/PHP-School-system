@@ -14,12 +14,15 @@ body{
     align-items: center;
     margin: 0px;
     padding: 0px;
+    background-color: #222;
+    color: #efefef;
 }
 
 .div-container{
     display: inline-flex;
     flex-direction: column;
     align-items: center;
+    width: 95%;
 }
 
 .settings-container{
@@ -35,11 +38,15 @@ body{
 .setting-card{
     height: 250px;
     width: 250px;
-    border-radius: 25px;
-    background-color: rgb(241, 241, 241);
     padding: 2%;
-    margin: 10px;
+    margin: 15px;
     text-align: center;
+    background: rgba( 255, 255, 255, 0.20 );
+    box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur( 7.5px );
+    -webkit-backdrop-filter: blur( 7.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 .setting-image{ 
@@ -67,11 +74,11 @@ body{
 table {
     font-family: 'samsungSans';
     border-collapse: collapse;
-    width: 70%;
+    width: 80%;
     margin-right: auto;
     margin-left: auto;
-    margin-top: 20px;
     margin-bottom: 20px;
+
 }
 
 table td, table th {
@@ -79,9 +86,18 @@ table td, table th {
     padding: 8px;
 }
 
-table tbody tr:nth-child(even){background-color: #f2f2f2;}
+table tbody tr{
+    background: rgba( 255, 255, 255, 0.20 );
+    box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur( 7.5px );
+    -webkit-backdrop-filter: blur( 7.5px );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    transition: ease-in-out 200ms;
+}
 
-table tbody tr:hover {background-color: #ddd;}
+table tbody tr:hover {
+    background-color: rgba(221, 221, 221, 0.336);
+}
 
 table th {
   padding-top: 12px;
@@ -90,18 +106,19 @@ table th {
 }
 
 table thead{
-    background-color: skyblue;
-    color: white;
+    background-color: #fefefe;
+    color: #222;
     transition: 300ms ease-in-out;
 }
 
 table thead:hover{
-    background-color:rgb(0, 132, 255);
+    background-color:#00AAFF;
+    color: #fefefe;
 }
 
 .text-area{
     font-family: 'CenturyGauthic';
-    background-color: rgba(110, 110, 110, 0.178);
+    background-color: rgba(110, 110, 110, 0.712);
     border-radius: 25px;
     border-width: 0px;
     padding-right: 10px;
@@ -114,17 +131,28 @@ table thead:hover{
 .mn-button{
     min-width: 60%;
     font-family: 'samsungSans';
-    background-color: skyblue;
-    color: white;
+    background-color: #fefefe;
+    color: #222;
+    box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.281);
     font-weight: bold;
     border-radius: 1000px;
     border-width: 0px;
     margin-bottom: 25px;
     height: 35px;
-    transition: ease-in-out 300ms;
+    transition: ease-in-out 200ms;
 }
 
 .mn-button:hover{
-    background-color:rgb(0, 132, 255);
+    background-color:#00AAFF;
+    color: #fefefe;
     border-width: 0px;
+}
+
+@media only screen and (max-width: 720px){
+    .settings-container{
+        grid-template-columns: auto;
+    }
+    table{
+        width: 95%;
+    }
 }

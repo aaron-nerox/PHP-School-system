@@ -4,8 +4,44 @@
     width: 95%;
     margin-left: auto;
     margin-right: auto;
+
+}
+
+.diapo{
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
 }
 
 .table-img{
     width: 200px;
+}
+
+@media only screen and (max-width: 720px){
+    .diaporama-container{
+        height: 200px;
+    }
+
+    .diapo{
+        height: 200px;
+    }
+
+    .table-img{
+        width: 100px;
+    }
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1281px) {
+    .diaporama-container{
+        height: 200px;
+    }
+
+    .diapo{
+        height: 200px;
+    }
+
+    .table-img{
+        width: 100px;
+    }
 }

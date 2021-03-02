@@ -21,10 +21,10 @@
         <p class="title">Contacts de l'ecole</p>
         <p class="important" >Notre Adresse:</p>
         <p class="text">Adress Alger, Rue didouch mourad N°2113 Ecole de formations.</p>
-        <div style="max-width:100%;overflow:hidden;color:red;width:600px;height:400px;">
-    <div id="canvasfor-googlemap" style="height:100%; width:100%;max-width:100%;">
-    <iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=hassiba&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
-    </div>
+        <div style="max-width:100%;overflow:hidden;color:red;width:80%;height:400px;">
+            <div id="canvasfor-googlemap" style="height:100%; width:100%;max-width:100%;">
+                <iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=hassiba&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
+            </div>
     <a class="googlemap-enabler" href="https://www.embed-map.com" id="grab-mapdata">https://www.embed-map.com</a>
     <style>#canvasfor-googlemap img{max-height:none;max-width:none!important;background:none!important;}</style></div>
         <p class="important">Numeros utils:</p>
