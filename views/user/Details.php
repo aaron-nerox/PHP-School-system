@@ -8,12 +8,20 @@
     $cycle;
     $pageTitle;
     $controller;
+    $tag;
     $times = ['8:00','10:00','12:00','13:00'];
     $days = ['dimanch', 'lundi','mardi','mercredi','jeudi'];
 
     if(isset($_GET['info_mode']) && isset($_GET['cycle'])){
         $infoMode = htmlentities($_GET['info_mode']);
         $cycle = htmlentities($_GET['cycle']);
+        if($cycle === 'primaire'){
+            $tag = 'pre_1';
+        }elseif($cycle === 'moyen'){
+            $tag = 'moy_1';
+        }else{
+            $tag = 'sec_1';
+        }
         switch($infoMode){
             case 'emploi':
                 $pageTitle = 'La list des emplois de temps';
@@ -59,7 +67,7 @@
                 <tr>
                     <td><?php echo $days[$x]; ?></th>
                     <?php for($i=0; $i<4; $i++): ?>
-                    <th><?php echo $controller->getClassFromEmploi('sec_1',$days[$x],$times[$i]);?></th>
+                    <th><?php echo $controller->getClassFromEmploi($tag,$days[$x],$times[$i]);?></th>
                     <?php endfor; ?>
                 </tr>
                 <?php endfor; ?>

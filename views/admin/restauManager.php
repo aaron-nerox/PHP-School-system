@@ -26,7 +26,7 @@
             $currentDessert = $meal->nom_dessert;
 
             if($inputMeal !== $currentMeal && $inputDessert !== $currentDessert){
-                echo $restauController->updateMeal($inputMeal,$inputDessert, $meal->jour_repas);
+                $restauController->updateMeal($inputMeal,$inputDessert, $meal->jour_repas);
             }elseif($inputMeal !== $currentMeal){
                 $restauController->modifyMeal($inputMeal, $meal->jour_repas);
             }elseif($inputDessert !== $currentDessert){
@@ -44,12 +44,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php Loader::loadStyleSheets('../user/')?>
     <title>Gestinaire de restauration</title>
+    <script src="../scripts/jquery-3.5.1.min.js"></script>
+    <script src="../scripts/UtilScript.js"></script>
 </head>
 <body>
     <?php $header->create(); ?>
 
     <center><p class="title">Programme de restauration</p></center>
-    <form method="post" align="center" action="<?php $_SERVER['PHP_SELF'] ?>">
+    <form method="post" align="center">
         <table>
             <thead>
                 <th>Jour</th>
@@ -70,9 +72,8 @@
                 <?php endforeach;?>
             </tbody>
         </table>
-        <input type="submit" name="update-restau" value="Sauvegarder" id="submit"/>
+        <input type="submit" name="update-restau" value="Sauvegarder" id="submit" onclick="reload()"/>
     </form>
     <?php $footer->createMinified(); ?>
-    <script src="../user/scripts/UtilScript.js"></script>
 </body>
 </html>

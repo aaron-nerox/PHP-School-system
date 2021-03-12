@@ -21,3 +21,18 @@ function toggleMenu() {
     x.className = "topnav";
   }
 }
+
+function deleteDiapo(id){
+  $.ajax({
+    url: "diapoManager.php",
+    type: "post",
+    data: {delimg: id},
+    success:function(result){
+      location.reload()
+    }
+  })
+}
+
+function reload(){
+  location.reload()
+}

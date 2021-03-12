@@ -35,6 +35,6 @@
         </div>
     </div>
     <?php $footer->create() ?>
-    <script src="./scripts/UtilScript.js"></script>
+    <script src="../scripts/UtilScript.js"></script>
 </body>
 </html>

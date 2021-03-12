@@ -31,7 +31,7 @@ class Article extends Loader{
      * get all articles from the database
      */
     public function getAllArticles(){
-        $sql = "SELECT * FROM article";
+        $sql = "SELECT * FROM article ORDER BY id_article DESC LIMIT 8";
         $statment = $this->db_conn->prepare($sql);
         $statment->execute();
 

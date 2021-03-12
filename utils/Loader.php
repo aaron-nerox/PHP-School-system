@@ -1,4 +1,5 @@
 <?Php 
+
     abstract class Loader{
 
         public function getInstance($path,$className){

@@ -8,6 +8,7 @@
 
     $times = ['8:00','10:00','12:00','13:00','15:00'];
     $days = ['dimanch', 'lundi','mardi','mercredi','jeudi'];
+    $tags = ['pre_1','sec_1','moy_1'];
     
     for($x =0;$x<5;$x++){
         if(isset($_POST['submit'.$days[$x]])){
@@ -19,6 +20,16 @@
                 }
             }
         }
+
+        if(isset($_POST['submit'.$days[$x].'pre_1'])){
+            for($i=0;$i<4;$i++){
+                $currentValue = $controller->getClassFromEmploi('pre_1',$days[$x],$times[$i]);
+                $inputValue = htmlentities($_POST['class'.$days[$x].$times[$i].'pre_1']);
+                if($currentValue !== $inputValue){
+                    $controller->setClassFromEmploi('pre_1',$days[$x],$times[$i],$inputValue);
+                }
+            }
+        }
     }
 
     if(isset($_POST['add-emploi'])){
@@ -27,7 +38,7 @@
                 $tag = htmlentities($_POST['tagname']);
                 $className = htmlentities($_POST['class'.$days[$x].$times[$i]]);
                 $cycleName = $_POST['cyclename'];
-                echo $controller-> addClass($tag,$days[$x],$times[$i],$times[$i+1],$cycleName,$className);
+                $controller-> addClass($tag,$days[$x],$times[$i],$times[$i+1],$cycleName,$className);
             }
         }
     }
@@ -93,7 +104,7 @@
                     <?php for($i=0; $i<4; $i++): ?>
                     <th><input type="text" name="<?php echo "class$days[$x]$times[$i]pre_1"; ?>" value="<?php echo $controller->getClassFromEmploi('pre_1',$days[$x],$times[$i]);?>"></th>
                     <?php endfor; ?>
-                    <th><input name="submit<?php echo $days[$x]; ?>" class="mn-button" type="submit" value="confirmer"></th>
+                    <th><input name="submit<?php echo $days[$x]; ?>pre_1" class="mn-button" type="submit" value="confirmer"></th>
                     </form>
                 </tr>
                 <?php endfor; ?>
@@ -139,7 +150,7 @@
                     <th><?php echo $days[$x]; ?></th>
                     <form method="post">
                     <?php for($i=0; $i<4; $i++): ?>
-                    <th><input type="text" name="<?php echo "class$days[$x]$times[$i]sec_1"; ?>" value="<?php echo $controller->getClassFromEmploi('sec_1',$days[$x],$times[$i]);?>"></th>
+                    <th><input type="text" name="<?php echo "class$days[$x]$times[$i]pre_1"; ?>" value="<?php echo $controller->getClassFromEmploi('pre_1',$days[$x],$times[$i]);?>"></th>
                     <?php endfor; ?>
                     <th><input name="submit<?php echo $days[$x]; ?>" class="mn-button" type="submit" value="confirmer"></th>
                     </form>

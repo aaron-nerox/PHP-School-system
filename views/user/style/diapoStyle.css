@@ -31,17 +31,3 @@
     }
 
 }
-
-@media only screen and (min-width: 768px) and (max-width: 1281px) {
-    .diaporama-container{
-        height: 200px;
-    }
-
-    .diapo{
-        height: 200px;
-    }
-
-    .table-img{
-        width: 100px;
-    }
-}

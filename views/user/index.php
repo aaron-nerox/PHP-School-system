@@ -26,7 +26,7 @@
     <center><p class="title">Nos articles</p></center>
     <?php $articlecard->render($articles); 
             $footer->create();?>
-    <script src="./scripts/UtilScript.js"></script>
+    <script src="../scripts/UtilScript.js"></script>
 
 </body>
 </html>

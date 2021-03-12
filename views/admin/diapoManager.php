@@ -28,8 +28,8 @@
     /**
      * remove an image
      */
-    if(isset($_GET['delimg'])){
-        $id = htmlentities($_GET['delimg']);
+    if(isset($_POST['delimg'])){
+        $id = htmlentities($_POST['delimg']);
         $diapoController->deleteImage($id);
     }
 
@@ -42,6 +42,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php Loader::loadStyleSheets('../user/')?>
     <title>Gestinaire de diaporama</title>
+    <script src="../scripts/jquery-3.5.1.min.js"></script>
+    <script src="../scripts/UtilScript.js"></script>
 </head>
 <body>
     <?php $header->create(); ?>
@@ -65,9 +67,7 @@
                 <tr>
                     <th><img src="http://localhost/projettdw/storage/<?php echo $image->lien_img_diaporama; ?>" alt="image" class="table-img"></th>
                     <th>
-                        <a href="./diapoManager.php?delimg=<?php echo $image->id_diaporama;?>">
-                            <button class="mn-button" >Suprimmer</button>
-                        </a>
+                        <button class="mn-button" onclick="deleteDiapoById(<?php echo $image->id_diaporama;?>)">Suprimmer</button>
                     </th>
                 </tr>
             <?php endforeach;?>
@@ -75,6 +75,5 @@
     </table>
 
     <?php $footer->createMinified(); ?>
-    <script src="../user/scripts/UtilScript.js"></script>
 </body>
 </html>
