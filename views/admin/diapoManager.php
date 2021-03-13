@@ -67,7 +67,7 @@
                 <tr>
                     <th><img src="http://localhost/projettdw/storage/<?php echo $image->lien_img_diaporama; ?>" alt="image" class="table-img"></th>
                     <th>
-                        <button class="mn-button" onclick="deleteDiapoById(<?php echo $image->id_diaporama;?>)">Suprimmer</button>
+                        <button class="mn-button" onclick="deleteDiapo(<?php echo $image->id_diaporama;?>)">Suprimmer</button>
                     </th>
                 </tr>
             <?php endforeach;?>

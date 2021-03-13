@@ -42,5 +42,12 @@ class EmploiController extends Loader{
         return $this->ModelArray['Emploi']->addClass($tag,$day,$beginhour,$endHour,$cycle,$value);
     }
 
+    /**
+     * returns the list of tags for all plans
+     */
+    public function getTags(){
+        return $this->ModelArray['Emploi']->getAllTags();
+    }
+
     
 }

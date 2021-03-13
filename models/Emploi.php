@@ -13,6 +13,14 @@ class Emploi extends Loader{
         $this->db_conn = $this->DbConnection->db_connect('localhost','ecole_db','root','');
     }
 
+    public function getAllTags(){
+        $sql = "SELECT tag_emploi FROM emplois_temps GROUP BY tag_emploi";
+        $statment = $this->db_conn->prepare($sql);
+        $statment->execute();
+
+        return $statment->fetchAll();
+    }
+
     /**
      * a function that gets a planing by it's tag
      */

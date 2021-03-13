@@ -8,24 +8,26 @@
     $cycle;
     $pageTitle;
     $controller;
-    $tag;
+    $tagPreset;
     $times = ['8:00','10:00','12:00','13:00'];
     $days = ['dimanch', 'lundi','mardi','mercredi','jeudi'];
+    $tags;
 
     if(isset($_GET['info_mode']) && isset($_GET['cycle'])){
         $infoMode = htmlentities($_GET['info_mode']);
         $cycle = htmlentities($_GET['cycle']);
         if($cycle === 'primaire'){
-            $tag = 'pre_1';
+            $tagPreset = 'pre';
         }elseif($cycle === 'moyen'){
-            $tag = 'moy_1';
+            $tagPreset = 'moy';
         }else{
-            $tag = 'sec_1';
+            $tagPreset = 'sec';
         }
         switch($infoMode){
             case 'emploi':
                 $pageTitle = 'La list des emplois de temps';
                 $controller = Loader::loadClassInstance('controllers', 'EmploiController');
+                $tags = $controller->getTags();
                 break;
             case 'ens':
                 $pageTitle = 'La list des enseignants';
@@ -54,6 +56,8 @@
     <?php $header->create();
      if($infoMode === 'emploi'): ?>
         <center><p class="title">Les emplois de temps de cycle <?php echo $cycle; ?>:</p></center>
+        <?php foreach($tags as $tag): 
+            if(substr($tag->tag_emploi,0,3)===$tagPreset):?>
         <table>
             <thead>
                 <th></th>
@@ -67,12 +71,13 @@
                 <tr>
                     <td><?php echo $days[$x]; ?></th>
                     <?php for($i=0; $i<4; $i++): ?>
-                    <th><?php echo $controller->getClassFromEmploi($tag,$days[$x],$times[$i]);?></th>
+                    <th><?php echo $controller->getClassFromEmploi($tag->tag_emploi,$days[$x],$times[$i]);?></th>
                     <?php endfor; ?>
                 </tr>
                 <?php endfor; ?>
             </tbody>
         </table>
+        <?php endif; endforeach; ?>
     <?php elseif($infoMode === 'ens'): ?>
         <center><p class="title">La list de notre ensiegnants:</p></center>
         <table>
